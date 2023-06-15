@@ -14,21 +14,21 @@ public class C06_Assertion {
     public void test01() {
 
         Assert.assertEquals(2,2);
-        System.out.println("Test basarili bir sekilde calisti");
+        System.out.println("Q02 basarili bir sekilde calisti");
 
     }
 
     @Test
     public void test02() {
         Assert.assertEquals(3,2);
-        System.out.println("Test basarili bir sekilde calisti");
+        System.out.println("Q02 basarili bir sekilde calisti");
     }
 
     @Test
     public void test03() {
 
         Assert.assertNotEquals(5,6);
-        System.out.println("Test basarili bir sekilde calisti");
+        System.out.println("Q02 basarili bir sekilde calisti");
 
     }
 
@@ -37,19 +37,19 @@ public class C06_Assertion {
        String actualName = "erol";
        String exceptedName = "Erol";
 
-       System.out.println("Test basarili bir sekilde calisti");
-        System.out.println("Test başarılı bir şekilde çalıştı");
-        System.out.println("Test başarılı bir şekilde çalıştı");
-        System.out.println("Test başarılı bir şekilde çalıştı");
-        System.out.println("Test başarılı bir şekilde çalıştı");
-        System.out.println("Test başarılı bir şekilde çalıştı");
-        System.out.println("Test başarılı bir şekilde çalıştı");
+       System.out.println("Q02 basarili bir sekilde calisti");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
         Assert.assertEquals(exceptedName,actualName);
-        System.out.println("Test başarılı bir şekilde çalıştı");
-        System.out.println("Test başarılı bir şekilde çalıştı");
-        System.out.println("Test başarılı bir şekilde çalıştı");
-        System.out.println("Test başarılı bir şekilde çalıştı");
-        System.out.println("Test başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
     }
 
     @Test
@@ -58,7 +58,7 @@ public class C06_Assertion {
         int yas = 50;
         int emeklilikYasi = 65;
         Assert.assertTrue(emeklilikYasi<yas);
-        System.out.println("Test başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
     }
 
     @Test
@@ -66,7 +66,7 @@ public class C06_Assertion {
         int yas = 50;
         int emeklilikYasi = 65;
         Assert.assertTrue(emeklilikYasi>yas);
-        System.out.println("Test başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
 
     }
 
@@ -76,6 +76,6 @@ public class C06_Assertion {
         int yas = 50;
         int emeklilikYasi = 65;
         Assert.assertFalse(emeklilikYasi<yas);
-        System.out.println("Test başarılı bir şekilde çalıştı");
+        System.out.println("Q02 başarılı bir şekilde çalıştı");
     }
 }

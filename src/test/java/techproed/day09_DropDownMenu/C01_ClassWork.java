@@ -15,8 +15,8 @@ public class C01_ClassWork {
     /*
     1)https://amazon.com adresine gidin
     2)Aşağıdaki adları kullanarak 4 test metodu oluşturun ve gerekli testleri yapin
-        ○ title Test  => Sayfa başlığının “Amazon” kelimesini içerip içermediğini test edin
-        ○ image Test => Amazon resminin görüntülendiğini (isDisplayed()) test edin
+        ○ title Q02  => Sayfa başlığının “Amazon” kelimesini içerip içermediğini test edin
+        ○ image Q02 => Amazon resminin görüntülendiğini (isDisplayed()) test edin
         ○ Search Box 'in erisilebilir oldugunu test edin(isEnabled())
         ○ wrongTitleTest => Sayfa basliginin “amazon” içermediğini doğrulayın
      */
@@ -36,7 +36,7 @@ public class C01_ClassWork {
     @Test
     public void titleTest() {
 
-        // ○ title Test  => Sayfa başlığının “Amazon” kelimesini içerip içermediğini test edin
+        // ○ title Q02  => Sayfa başlığının “Amazon” kelimesini içerip içermediğini test edin
         String actualTitle = driver.getTitle();
         String expextedTtle = "Amazon";
         Assert.assertTrue(actualTitle.contains(expextedTtle));
@@ -46,7 +46,7 @@ public class C01_ClassWork {
     @Test
     public void imageTest() {
 
-        // ○ image Test => Amazon resminin görüntülendiğini (isDisplayed()) test edin
+        // ○ image Q02 => Amazon resminin görüntülendiğini (isDisplayed()) test edin
         WebElement image = driver.findElement(By.id("nav-logo-sprites"));
         Assert.assertTrue(image.isDisplayed());
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Samsung", Keys.ENTER);

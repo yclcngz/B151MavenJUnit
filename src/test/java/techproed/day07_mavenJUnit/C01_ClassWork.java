@@ -50,8 +50,8 @@ public class C01_ClassWork {
         String exceptedSonucYzisi = "The payment was successfully submitted.";
 
         if (sonucYazisi.equals(exceptedSonucYzisi)) {
-            System.out.println("Test : PASSED");
-        } else System.out.println("Test :FAILED");
+            System.out.println("Q02 : PASSED");
+        } else System.out.println("Q02 :FAILED");
 
         //Sayfayi kapatiniz
         driver.close();
