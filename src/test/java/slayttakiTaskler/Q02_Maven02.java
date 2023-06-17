@@ -6,10 +6,9 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.security.Key;
 import java.time.Duration;
 
-public class Q02 {
+public class Q02_Maven02 {
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -23,7 +22,11 @@ public class Q02 {
         //3. Login alanine “username” yazdirin
         //4. Password alanine “password” yazdirin
         //5. Sign in buttonuna tiklayin
-        ///// driver.findElement(By.xpath("(//input)[1]")).sendKeys("username", Keys.TAB);????????????????????
+         driver.findElement(By.xpath("(//input)[1]")).
+                 sendKeys("username", Keys.TAB,"password",Keys.TAB,Keys.TAB, Keys.ENTER);
+         /*
+         Bu asamadan sonra sayfaya gitmedi hata verdi o nedenle devam etmedim
+          */
         //6. Pay Bills sayfasina gidin
         //7. amount kismina yatirmak istediginiz herhangi bir miktari yazin
         //8. tarih kismina “2020-09-10” yazdirin
