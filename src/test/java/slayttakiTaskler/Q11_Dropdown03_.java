@@ -6,11 +6,13 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
-public class Q11_Dropdown03 {
+public class Q11_Dropdown03_ {
 
                     //1.http://zero.webappsecurity.com/ Adresine gidin
                     //2. Sign in butonuna basin
@@ -50,12 +52,30 @@ public class Q11_Dropdown03 {
         //5. Sign in tusuna basin
         driver.findElement(By.xpath("//*[@type='text']")).
                 sendKeys("username", Keys.TAB,"password", Keys.TAB, Keys.TAB,Keys.ENTER);
+        driver.navigate().back();
+
+        //6. Pay Bills sayfasina gidin
+        driver.findElement(By.xpath("(//*[.='Online Banking'])[1]")).click();
+        driver.findElement(By.xpath("(//*[@class='headers'])[4]")).click();
+
+        //7. “Purchase Foreign Currency” tusuna basin
+        driver.findElement(By.xpath("(//*[@class='ui-state-default ui-corner-top'])[2]")).click();
+
+        //8. “Currency” drop down menusunden Eurozone’u secin
+        WebElement ddm = driver.findElement(By.xpath("//*[@id='pc_currency']"));
+        Select select = new Select(ddm);
+        select.selectByIndex(6);
+
+        //9. “amount” kutusuna bir sayi girin
+        driver.findElement(By.xpath("(//*[@type='text'])[5]")).sendKeys("20", Keys.ENTER);
 
         /*
 
-        Burdan sonra ilerlemedim cunku sayfaya girmiyior..
+        Bu asamada ikinci bir sayfa aciliyor ve nasil handle edecegimi bilmedigim icin kaldim......
 
          */
+
+
 
     }
 }

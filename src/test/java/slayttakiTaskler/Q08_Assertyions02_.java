@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class Q08_Assertyions02 {
+public class Q08_Assertyions02_ {
 
 
             //http://automationpractice.com/index.php sayfasina gidelim

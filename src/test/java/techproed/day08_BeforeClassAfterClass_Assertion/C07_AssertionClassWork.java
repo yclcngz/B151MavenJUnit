@@ -17,8 +17,8 @@ public class C07_AssertionClassWork {
     /*
     1)https://amazon.com adresine gidin
     2)Aşağıdaki adları kullanarak 4 test metodu oluşturun ve gerekli testleri yapin
-        ○ title Q02_Maven02  => Sayfa başlığının “Amazon” kelimesini içerip içermediğini test edin
-        ○ image Q02_Maven02 => Amazon resminin görüntülendiğini (isDisplayed()) test edin
+        ○ title Q02_Maven02_  => Sayfa başlığının “Amazon” kelimesini içerip içermediğini test edin
+        ○ image Q02_Maven02_ => Amazon resminin görüntülendiğini (isDisplayed()) test edin
         ○ Search Box 'in erisilebilir oldugunu test edin(isEnabled())
         ○ wrongTitleTest => Sayfa basliginin “amazon” içermediğini doğrulayın
      */
@@ -37,7 +37,7 @@ public class C07_AssertionClassWork {
     @Test
     public void titleTest() {
 
-        // ○ title Q02_Maven02  => Sayfa başlığının “Amazon” kelimesini içerip içermediğini test edin
+        // ○ title Q02_Maven02_  => Sayfa başlığının “Amazon” kelimesini içerip içermediğini test edin
         String actualTitle = driver.getTitle();
         String expextedTtle = "Amazon";
         Assert.assertTrue(actualTitle.contains(expextedTtle));
@@ -47,7 +47,7 @@ public class C07_AssertionClassWork {
     @Test
     public void imageTest() {
 
-        // ○ image Q02_Maven02 => Amazon resminin görüntülendiğini (isDisplayed()) test edin
+        // ○ image Q02_Maven02_ => Amazon resminin görüntülendiğini (isDisplayed()) test edin
         WebElement image = driver.findElement(By.id("nav-logo-sprites"));
         Assert.assertTrue(image.isDisplayed());
 
