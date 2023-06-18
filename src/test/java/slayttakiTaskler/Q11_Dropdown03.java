@@ -1,6 +1,8 @@
 package slayttakiTaskler;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -12,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
-public class Q11_Dropdown03_ {
+public class Q11_Dropdown03 {
 
                     //1.http://zero.webappsecurity.com/ Adresine gidin
                     //2. Sign in butonuna basin
@@ -68,14 +70,27 @@ public class Q11_Dropdown03_ {
 
         //9. “amount” kutusuna bir sayi girin
         driver.findElement(By.xpath("(//*[@type='text'])[5]")).sendKeys("20", Keys.ENTER);
+        driver.switchTo().alert().accept();
 
-        /*
+        //10.“US Dollars” in secilmedigini test edin
+        WebElement us = driver.findElement(By.xpath("(//*[@class='radio inline'])[2]"));
+        Assert.assertFalse(us.isSelected());
 
-        Bu asamada ikinci bir sayfa aciliyor ve nasil handle edecegimi bilmedigim icin kaldim......
+        //11.“Selected currency” butonunu secin
+        driver.findElement(By.id("pc_inDollars_false")).click();
 
-         */
+        //12.“Calculate Costs” butonuna basin sonra “purchase” butonuna basin
+        driver.findElement(By.id("pc_calculate_costs")).click();
 
+        //13.“Foreign currency cash was successfully purchased.” yazisinin ciktigini kontrol edin
+        driver.findElement(By.id("purchase_cash")).click();
+        String sonucYazisi = driver.findElement(By.xpath("//*[@id='alert_content']")).getText();
+        String expectedSonucYazizi = "Foreign currency cash was successfully purchased.";
+        Assert.assertEquals(expectedSonucYazizi,sonucYazisi);
+    }
 
-
+    @After
+    public void tearDown() throws Exception {
+        driver.close();
     }
 }
