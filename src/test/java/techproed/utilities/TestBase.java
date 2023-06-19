@@ -9,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class TestBase {
 
@@ -30,7 +32,7 @@ public abstract class TestBase {
 
     @After
     public void tearDown() throws Exception {
-        driver.quit();
+        //driver.quit();
     }
 
     //HARD WAIT (Bekleme Methodu)
@@ -82,8 +84,17 @@ public abstract class TestBase {
     public void selectValue(WebElement ddm, String value){
         Select select = new Select(ddm);
         select.selectByValue(value);
-
     }
 
+    //SwichTo Window-1
+    public void switchToWindow(int index){
+        List<String> pencerelere = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(pencerelere.get(index));
+    }
+
+    //SwichTo Window-2
+    public void switchToWindow2(int index){
+        driver.switchTo().window(driver.getWindowHandles().toArray()[index].toString());
+    }
 
 }
