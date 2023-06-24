@@ -32,7 +32,6 @@ public class C01_Cookies extends TestBase {
             System.out.println(sayac+". cookieName : "+w.getName()); // -->Sadece cookie'lerin isimlerini aliriz
             System.out.println(sayac+". cookieValue : "+w.getValue()); // -->Sadece cookie'lerin degerlerini aliriz
             sayac++;
-
         }
 
 
@@ -46,18 +45,33 @@ public class C01_Cookies extends TestBase {
         //4-ismi i18n-prefs olan cookie degerinin USD oldugunu test edin
         Assert.assertEquals(driver.manage().getCookieNamed("i18n-prefs").getValue(),"USD");
 
-
         //5-ismi “en sevdigim cookie” ve degeri “cikolatali” olan bir cookie olusturun ve sayfaya ekleyin
+        System.out.println("**********************");
+        Cookie cookie = new Cookie("en sevdigim cookie","cikolatali");
+        driver.manage().addCookie(cookie);
 
-
-        //6-eklediginiz cookie’nin sayfaya eklendigini test
-
-        //System.out.println("Cookie'lerin sayisi = "+Arrays.stream(driver.manage().getCookies().toArray()).count());
+        //6-eklediginiz cookie’nin sayfaya eklendigini test\
+        cookieSet = driver.manage().getCookies();
+        for (Cookie w : cookieSet){
+            System.out.println(w);
+        }
+        Assert.assertEquals("cikolatali", driver.manage().getCookieNamed("en sevdigim cookie").getValue());
 
         //7-ismi skin olan cookie’yi silin ve silindigini test edin
+        driver.manage().deleteCookieNamed("skin");
 
+        int beforeDeleteSize = cookieSet.size();
+        System.out.println("beforeDeleteSize = " + beforeDeleteSize);
+
+        cookieSet = driver.manage().getCookies();
+        int afterDeleteSize = cookieSet.size();
+        System.out.println("afterDeleteSize = " + afterDeleteSize);
+
+        Assert.assertEquals(1,beforeDeleteSize-afterDeleteSize);
 
         //8-tum cookie’leri silin ve silindigini test edin
-
+        driver.manage().deleteAllCookies();
+        cookieSet = driver.manage().getCookies();
+        Assert.assertTrue(cookieSet.isEmpty());
     }
 }
