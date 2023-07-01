@@ -35,6 +35,20 @@ public class C02_Actions_DragDrop extends TestBase {
         WebElement targetWE = driver.findElement(By.xpath("//*[@id='droppable']"));
         Actions actions = new Actions(driver);
         actions.clickAndHold(sourcesWE).moveToElement(targetWE).release().perform();
+    }
+
+    @Test
+    public void test03() {
+
+        //https://jqueryui.com/droppable/ adresine gidelim
+        driver.get("https://jqueryui.com/droppable/");
+
+        //Drag me to my target webelementini Drop here webelementi üzerine bıkalım
+        driver.switchTo().frame(0);
+        WebElement sourcesWE = driver.findElement(By.xpath("//*[@id='draggable']"));
+        WebElement targetWE = driver.findElement(By.xpath("//*[@id='droppable']"));
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(sourcesWE).moveByOffset(135,28).release().perform();
 
     }
 }
