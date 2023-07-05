@@ -6,7 +6,9 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -42,6 +44,15 @@ public abstract class TestBase {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    // Selenium Wait / Expilicit Wait
+    //visibilitiOf(element) methodu
+    public void visibleWait(WebElement element, int saniye){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(saniye));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
 
@@ -96,5 +107,7 @@ public abstract class TestBase {
     public void switchToWindow2(int index){
         driver.switchTo().window(driver.getWindowHandles().toArray()[index].toString());
     }
+
+
 
 }

@@ -3,7 +3,12 @@ package techproed.day16_SeleniumWait;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import techproed.utilities.TestBase;
+
+import java.time.Duration;
 
 public class C01_ExplicitWait extends TestBase {
 
@@ -33,13 +38,76 @@ public class C01_ExplicitWait extends TestBase {
         //Start buttonuna tıkla
         driver.findElement(By.xpath("//button")).click();
 
+
         //Hello World! Yazının sitede oldugunu test et
-        Assert.assertEquals("Hello World!", driver.findElement(By.xpath("(//h4)[2]")).getText());
+        WebElement helloText = driver.findElement(By.xpath("(//h4)[2]"));
+
 
         //Locate'ini aldığımız helloWorldText webelementini görünür olana kadar explicit wait ile bekleyeceğim
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // -->max 20 saniye bekle dedik
+        wait.until(ExpectedConditions.visibilityOf(helloText));// --> visibilityOf() methoduyla görünür olana kadar bekler
 
-        //visibilityOf() methoduyla görünür olana kadar bekler
+        Assert.assertEquals("Hello World!", helloText.getText());
 
 
+
+    }
+
+
+    @Test
+    public void test02() {
+
+        //https://the-internet.herokuapp.com/dynamic_loading/1
+        driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
+
+        //Start buttonuna tıkla
+        driver.findElement(By.xpath("//button")).click();
+
+
+        //Hello World! Yazının sitede oldugunu test et
+        WebElement helloText = new WebDriverWait(driver,Duration.ofSeconds(20)).
+                until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//h4)[2]")));
+
+
+        Assert.assertEquals("Hello World!", helloText.getText());
+    }
+
+    @Test
+    public void tets03() {
+        //https://the-internet.herokuapp.com/dynamic_loading/1
+        driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
+
+        //Start buttonuna tıkla
+        driver.findElement(By.xpath("//button")).click();
+
+
+        //Hello World! Yazının sitede oldugunu test et
+        new WebDriverWait(driver,Duration.ofSeconds(20)).
+                until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//h4)[2]")));
+
+
+        Assert.assertEquals("Hello World!", driver.findElement(By.xpath("(//h4)[2]")).getText() );
+
+    }
+
+    @Test
+    public void test04() {
+
+        //https://the-internet.herokuapp.com/dynamic_loading/1
+        driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
+
+        //Start buttonuna tıkla
+        driver.findElement(By.xpath("//button")).click();
+
+
+        //Hello World! Yazının sitede oldugunu test et
+        WebElement helloText = driver.findElement(By.xpath("(//h4)[2]"));
+
+
+        //Locate'ini aldığımız helloWorldText webelementini görünür olana kadar explicit wait ile bekleyeceğim
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // -->max 20 saniye bekle dedik
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id='loading']")));
+
+        Assert.assertEquals("Hello World!", helloText.getText());
     }
 }
