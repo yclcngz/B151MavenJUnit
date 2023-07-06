@@ -3,6 +3,7 @@ package techproed.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -55,8 +56,23 @@ public abstract class TestBase {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    // visibilityOfElementLocated(locator) methodu
+    public void visibleWait(By locator, int saniye){
 
-    //AcceptAlert
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(saniye));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+
+    //AlleretWait methodu
+    public void alertWait(int saniye) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(saniye));
+        wait.until(ExpectedConditions.alertIsPresent());
+    }
+
+
+        //AcceptAlert
     public void acceptAlert(){
         driver.switchTo().alert().accept();
     }
