@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -69,6 +70,14 @@ public abstract class TestBase {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(saniye));
         wait.until(ExpectedConditions.alertIsPresent());
+    }
+
+
+    //FluentWait visible method
+
+    public void visibleFluentWait(WebElement element, int saniye, int milisaniye){
+        new FluentWait<>(driver).withTimeout(Duration.ofSeconds(saniye)).
+                pollingEvery(Duration.ofMillis(milisaniye)).until(ExpectedConditions.visibilityOf(element));
     }
 
 
