@@ -72,5 +72,7 @@ public class GetMethodlari extends TestBase {
         int resimYuksekligi = urunResmi.getSize().getHeight();
         Assert.assertEquals(120, resimGenisligi);
         Assert.assertEquals(174, resimYuksekligi);
+
+        driver.close();
     }
 }
