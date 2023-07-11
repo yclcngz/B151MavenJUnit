@@ -51,7 +51,7 @@ public class Task02 extends TestBase {
         //Kontrol kutularının seçili olduğunu doğrulayınız.
         //İkinci ürüne ait kontrol kutusunun seçimini kaldırınız.
         //İkinci ürünün kontrol kutusunun seçili olmadığını doğrulayınız.
-        //“Seçilenleri Daha Sonra Al” fonksiyonunun aktif olduğunu doğrulayınız.
+        //“Seçilenleri Daha Sonra Al” fonksiyonunun aktif olduğunu doğrulayınız..
 
 
 
